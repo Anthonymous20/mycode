@@ -29,5 +29,5 @@ print("If I connect to IP", iplist[3], " or ", iplist[4])
 new_list = [ 5060, "80", 55, "10.0.0.1", "10.20.30.1", "ssh" ]
 # Display the new sentence
 # split into mult-line for readability
-print ("When I " + new_list[5] + " into IP addresses " + new list[3])
-print("or " + new_list[4] + print(str(new_list[0]) + "I am unable to ping ports") + new_list[1] + ", or " + str(new_list[2]))
+print ("When I " + new_list[5] + " into IP addresses " + new_list[3] + " or " + new_list[4])
+print ("on " + (str(new_list[0]) + ", I am unable to ping ports ") + new_list[1] + ", or " + (str(new_list[2])))
