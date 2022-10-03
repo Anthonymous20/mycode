@@ -12,19 +12,19 @@ windSpeed = float(input("What is the current wind speed?"))
 if windSpeed <= 40:
     print(windSpeed)
     message =  'you are in a tropical storm.'
-elif windSpeed <= 74:
+elif (windSpeed <= 74) :
     print(windSpeed)
     message =  'you are in a Cat 1 hurricane.'
-elif windSpeed <= 110:
+elif (windSpeed <= 110) :
     print(windSpeed)
     message =  'you are in a Cat 2 hurricane.'
-elif windSpeed <= 129:
+elif (windSpeed <= 129) :
     print(windSpeed)
     message =  'you are in a Cat 3 hurricane.'
-elif windSpeed <= 155:
+elif (windSpeed <= 155) :
     print(windSpeed)
     message =  'you are in a Cat 4 hurricane.'
-elif windSpeed <= 156:
+elif (windSpeed >= 156) :
     print(windSpeed)
     message =  'you are in a Cat 5 hurricane.'
     
