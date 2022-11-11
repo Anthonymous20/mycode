@@ -1,0 +1,87 @@
+Lab Objective
+pip is the de-facto tool for checking out python packages from PyPi - the Python Package Index, a repository for Python code. At the time of writing, there were about 114,150 packages available. It might not be a bad idea to check out the repository if you haven't before PyPi - Python Package Index
+
+Each entry has (at least) instructions on how to download the entry. Additionally, you may also find descriptions of that code, links to homepages, as well as links to the code source (typically links to GitHub).
+
+Procedure
+First, we'll need to ensure that pip is installed. When prompted, press y and hit enter.
+
+student@bchd:~$ sudo apt install python3-pip
+
+Issue the command to explore pip help.
+
+student@bchd:~$ pip3 help
+
+You can also run the same command with:
+
+student@bchd:~$ python3 -m pip help
+
+The instruction above is a bit more clear, and doesn't rely on a shortcut (pip). We can explore commands associated with the pip install command.
+
+student@bchd:~$ python3 -m pip help install
+
+Say we want to find a package. We can just do a pip search . Issue the pip search command on the word cl-chess.
+
+student@bchd:~$ python3 -m pip search cl-chess
+
+ERROR!? Unfortunately, some entity trashed the python3 -m pip search API by making a ton of traffic and spoofing the originating IP addresses. Read about why we can't have nice things at: https://status.python.org/
+
+To read about libraries, we're going to have to actually use https://pypi.org. Great! Turns out we can also access the pip library with python3. Let's do as much, and then try installing the cl-chess library. Read about it on the homepage, here: https://pypi.org/project/cl-chess/
+
+student@bchd:~$ python3 -m pip install cl-chess
+
+We will have to update our path to overcome the warning that we just saw in that output.
+
+student@bchd:~$ export PATH=$PATH:/home/student/.local/bin/
+
+To run cl-chess, simply type chess:
+
+student@bchd:~$ chess
+
+NOTE: To perform the "Queen's Gambit", choose white 'w'. Open with the move, "d4". If black moves to "d5", counter with "c4". This is a "gambit" because black cannot take white's pawn without incurring a disadvantage.
+
+Feel free to play Chess for a bit. When you're done, type exit to quit.
+
+Let's use the pip list command to see what packages have been installed.
+
+student@bchd:~$ python3 -m pip list
+
+Ensure chess is installed.
+
+student@bchd:~$ python3 -m pip list | grep chess
+
+Let's go ahead and uninstall cl-chess.
+
+student@bchd:~$ python3 -m pip uninstall cl-chess
+
+You'll be prompted to proceed. Type Y and Enter.
+
+It can be highly disruptive to upgrade Python packages that other applications are depending on, so in the name of stability, we won't issue the update command. However, you should know that we could issue pip install -U if we wanted to upgrade an outdated package.
+
+Imagine you're working on a Python project and you have a coworker that says they want to help, or maybe you just want to recreate your current Python environment. The pip freeze command will print the packages and versions to the screen in a format that can be used for just that. Try issuing it.
+
+student@bchd:~$ python3 -m pip freeze
+
+Now try outputting the freeze command to a file called requirements.txt, where (-m) is "module", pip freeze requests a snapshot of current packages installed, and > requirements.txt is "direct the output into this file".
+
+student@bchd:~$ python3 -m pip freeze > requirements.txt
+
+The purpose of this file is to track the dependencies currently utilized within our Python environment (if we installed it with pip, it's going to end up in requirements). We already have these packages installed, however, the following command would ask pip to install from the file requirements.txt.
+
+student@bchd:~$ #python3 -m pip install -r requirements.txt
+
+There isn't too much else to pip beyond knowing what packages to deploy. To help you out with that, check out the following entries on https://pypi.org
+
+The requests library allows for HTTP interactions - https://pypi.org/project/requests/
+
+The NumPy package is for array computing - https://pypi.org/project/numpy/
+
+Build remarkable graphs with matplotlib - https://pypi.org/project/matplotlib/
+
+Automate GUI web clicks with selenium (e.g. build a bot that orders a GPU card on day 0, or a bot that "participates" on social media) - https://pypi.org/project/selenium/
+
+Install the pandas package to create data frames for reading / writing / converting data - https://pypi.org/project/pandas/
+
+Use the flask web framework for building web apps (APIs) - https://pypi.org/project/Flask/
+
+That's pretty much all there is to pip! You might see 'pip3' later, which is actually just a pointer to python3 -m pip. Feel free to take some time and play around with the pip tool or exploring PyPi - Python Package Index before moving onto the next lab.
